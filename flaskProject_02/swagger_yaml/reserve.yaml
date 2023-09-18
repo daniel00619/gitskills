@@ -1,0 +1,19 @@
+tags:
+  -  reserve
+summary: 预约功能
+parameters:
+  - name: gpu_id
+    in: form
+    type: int
+    description: 想要预约的gpu的id
+
+  - name: reserve_data
+    in: body
+    type: ReserveModel
+    description: 通过全局变量g和 gpu_id生成到对应的reserve记录
+
+responses:
+   200:
+      description: 响应结果正确
+   400:
+      description: 响应结果错误

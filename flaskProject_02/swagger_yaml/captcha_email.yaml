@@ -1,0 +1,19 @@
+path: /captcha/email/{id}
+tags:
+  -  email
+summary: 发送邮件
+parameters:
+  - name: id
+    in: path
+    description: 通过id来确定要显示的gpu信息
+    required: true
+    schema:
+        type: integer
+        format: int64
+responses:
+  '200':
+    description: successful operation
+  '400':
+    description: Invalid ID supplied
+  '404':
+    description: gpu not found

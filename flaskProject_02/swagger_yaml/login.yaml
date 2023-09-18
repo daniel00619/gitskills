@@ -1,0 +1,24 @@
+tags:
+  -  login
+summary: 登录功能
+parameters:
+  - name: email
+    in: from
+    type: str
+    description: 用户的邮箱
+    required: true
+  - name: password
+    in: from
+    type: str
+    description: 用户的密码
+    required: true
+  - name: user
+    in: query
+    type: UserModel
+    description: 通过邮箱获取user对象
+    required: False
+responses:
+   200:
+      description: 响应结果正确
+   400:
+      description: 响应结果错误

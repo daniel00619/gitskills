@@ -1,0 +1,21 @@
+tags:
+  -  reserve_cancel
+summary: 取消预约功能
+parameters:
+  - name: gpu_id
+    in: form
+    type: int
+    description: 想要取消预约的gpu的id
+  - name: user_id
+    in: form
+    type: int
+    description: 想要取消预约的user的id
+  - name: reserve
+    in: query
+    type: ReserveModel
+    description: 通过user_id 和 gpu_id获取到对应的reserve记录
+responses:
+   200:
+      description: 响应结果正确
+   400:
+      description: 响应结果错误

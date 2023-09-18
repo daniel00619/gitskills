@@ -1,0 +1,13 @@
+tags:
+  -  my_lend
+summary: 我的借用
+parameters:
+  - name: gpus
+    in: body
+    type: list
+    description: 通过全局变量g获取当前用户的所有借用的gpu列表
+responses:
+   200:
+      description: 响应结果正确
+   400:
+      description: 响应结果错误

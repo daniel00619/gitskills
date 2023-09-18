@@ -1,0 +1,25 @@
+tags:
+  -  return
+summary: 归还功能
+parameters:
+  - name: gpu_id
+    in: query
+    type: int
+    description: 想要归还的gpu的id
+  - name: user_id
+    in: body
+    type: integer
+    description: 想要归还的用户的id
+  - name: gpu
+    in: query
+    type: GPUModel
+    description: 获取gpu对象并更改相应信息
+  - name: leasehold
+    in: query
+    type: LeaseholdModel
+    description: 获取借用记录并补全
+responses:
+   200:
+      description: 响应结果正确
+   400:
+      description: 响应结果错误

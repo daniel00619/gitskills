@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block title %}GPU管理-首页{% endblock %}
+
+{% block body %}
+    <table border="1">
+        <tbody>
+        <tr>
+            <th>id</th>
+            <th>ip</th>
+            <th>index</th>
+            <th>gpu_name</th>
+            <th>is_used</th>
+            <th>start_time</th>
+            <th>预计归还时间</th>
+            <th>username</th>
+            <th>查看详情</th>
+        </tr>
+        {% for gpu in gpus %}
+            <tr>
+                <td>{{ gpu.id }}</td>
+                <td>{{ gpu.ip }}</td>
+                <td>{{ gpu.index }}</td>
+                <td>{{ gpu.gpu_name }}</td>
+                <td>{{ gpu.is_used }}</td>
+                <td>{{ gpu.start_time }}</td>
+                <td>{{ gpu.days }}</td>
+                <td>{{ gpu.user.username }}</td>
+                <td>
+                    <a href="{{ url_for('gpu.detail', id=gpu.id) }}">点击查看详情</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+

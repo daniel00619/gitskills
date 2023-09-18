@@ -1,0 +1,14 @@
+tags:
+  -  record
+summary: 记录页面 显示所有的借还记录
+parameters:
+  - name: records
+    in: query
+    type: list
+    description: 所有的record对象形成的列表
+
+responses:
+   200:
+      description: 响应结果正确
+   400:
+      description: 响应结果错误

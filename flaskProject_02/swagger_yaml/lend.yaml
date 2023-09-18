@@ -1,0 +1,30 @@
+tags:
+  -  lend
+summary: 借用功能
+parameters:
+  - name: gpu_id
+    in: form
+    type: integer
+    description: 想要借用的gpu的id
+
+  - name: user_id
+    in: body
+    type: integer
+    description: 想要借用的用户的id
+
+  - name: gpu
+    in: query
+    description: 获取gpu对象并更改相应信息
+
+  - name: leasehold
+    in: body
+    description: 生成借用记录
+
+  - name: reserve
+    in: query
+    description: 获取预约记录
+responses:
+   200:
+      description: 响应结果正确
+   400:
+      description: 响应结果错误

@@ -1,0 +1,22 @@
+tags:
+  -  search
+summary: 搜索功能
+parameters:
+  - name: q
+    in: query
+    type: str
+    description: 得到搜索框中的内容
+    required: false
+    explode: true
+    schema:
+      type: string
+  - name: gpus
+    in: query
+    type: list
+    description: query查询获得状态为q的gpu列表
+    required: false
+responses:
+   200:
+      description: 响应结果正确
+   400:
+      description: 响应结果错误

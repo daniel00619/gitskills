@@ -1,0 +1,13 @@
+tags:
+  -  list
+summary: gpu列表 显示所有的GPU
+parameters:
+  - name: gpus
+    in: query
+    type: list
+    description: 所有的gpu对象形成的列表
+responses:
+   200:
+      description: 响应结果正确
+   400:
+      description: 响应结果错误

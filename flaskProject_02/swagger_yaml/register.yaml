@@ -1,0 +1,24 @@
+tags:
+  -  register
+summary: 注册功能
+parameters:
+  - name: email
+    in: form
+    type: str
+    description: 用户的邮箱
+    required: true
+  - name: username
+    in: form
+    type: str
+    description: 用户名
+    required: true
+  - name: password
+    in: form
+    type: str
+    description: 用户的密码
+    required: true
+responses:
+   200:
+      description: 响应结果正确
+   400:
+      description: 响应结果错误

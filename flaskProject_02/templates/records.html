@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}GPU管理-借还记录{% endblock %}
+
+{% block body %}
+    <table border="1">
+  <tbody>
+    <tr>
+      <th>id</th>
+      <th>start_time</th>
+      <th>end_time</th>
+      <th>user_id</th>
+      <th>gpu_id</th>
+    </tr>
+    {% for record in records %}
+    <tr>
+      <td>{{ record.id }}</td>
+      <td>{{ record.start_time }}</td>
+      <td>{{ record.end_time }}</td>
+      <td>{{ record.user_id }}</td>
+      <td>{{ record.gpu_id }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

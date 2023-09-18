@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/detail.css') }}">
+{% endblock %}
+
+{% block title %}GPU管理-详情{% endblock %}
+
+{% block body %}
+        <table border="1">
+        <tbody>
+        <tr>
+            <th>id</th>
+            <th>ip</th>
+            <th>index</th>
+            <th>gpu_name</th>
+        </tr>
+            <tr>
+                <td>{{ gpu.id }}</td>
+                <td>{{ gpu.ip }}</td>
+                <td>{{ gpu.index }}</td>
+                <td>{{ gpu.gpu_name }}</td>
+            </tr>
+        </tbody>
+    </table>
+<form action="{{ url_for('gpu.lend_gpu') }}" method="post">
+  预计归还时间: <input type="date" name="days">
+    <input type="hidden" name="gpu_id" value="{{ gpu.id }}">
+  <input type="submit" value="借用">
+</form>
+
+<form action="{{ url_for('gpu.return_gpu') }}" method="post">
+    <input type="hidden" name="gpu_id" value="{{ gpu.id }}">
+  <input type="submit" value="归还">
+</form>
+
+
+
+<caption>预约名单</caption>
+        <table border="1" >
+        <tr>
+            <th>user_id</th>
+            <th>user_name</th>
+            <th>预约时间</th>
+            <th>取消预约</th>
+        </tr>
+        {% for reserve in gpu.gpu_reserve %}
+            <tr>
+                <td>{{ reserve.user_id }}</td>
+                <td>{{ reserve.user_name }}</td>
+                <td>{{ reserve.reserve_time }}</td>
+                <td>
+                   <form action="{{ url_for('gpu.reserve_cancel') }}" method="post">
+                        <input type="hidden" name="gpu_id" value="{{ gpu.id }}">
+                        <input type="hidden" name="user_id" value="{{ reserve.user_id }}">
+                        <input type="submit" value="取消预约">
+                   </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+<form action="{{ url_for('gpu.reserve') }}" method="post">
+    <input type="hidden" name="gpu_id" value="{{ gpu.id }}">
+  <input type="submit" value="预约">
+</form>
+{% endblock %}
+
+
